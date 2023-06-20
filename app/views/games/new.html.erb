@@ -1,0 +1,14 @@
+<div class="container text-center">
+  <h1>New Game</h1>
+  <% charset = Array("a".."z") %>
+  <% @letters = charset.sample(10)%>
+  <% @letters.map do |letter| %>
+    <p type="button" class="btn btn-primary"><%= letter.upcase %></p>
+  <% end %>
+
+  <p>What is the longest word you can find?</p>
+  <form action = "score" method="post" data-turbo="false">
+    <input type="text" name="word" placeholder="Type the word here" class="form-control text-center">
+    <input type="submit" value="play" class= "btn btn-primary text-center" type="button">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</div>
